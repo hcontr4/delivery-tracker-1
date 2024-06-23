@@ -4,7 +4,7 @@ class PackagesController < ApplicationController
 
     @list_of_packages = matching_packages.order({ :created_at => :desc })
  
-    @waiting_on_packages = @list_of_packages.select { |e| !e.arrived}
+    @waiting_on_packages = @list_of_packages.select { |e| !(e.arrived)}
     @received_packages = @list_of_packages.select { |e| e.arrived } 
     # @received_packages = [] if @received_packages.nil?
 
